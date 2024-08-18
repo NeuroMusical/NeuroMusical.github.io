@@ -58,3 +58,6 @@ Human evolution is a field that combines evidence from anthropology, genetics, p
 - Gene-Culture Co-Evolution:
   - Explores the dynamic interplay between genetic evolution and cultural developments.
   - Emphasizes how culture shapes human biology and vice versa, contributing to adaptive flexibility.
+
+
+    <iframe src="https://docs.google.com/presentation/d/1yBG3xZHdJcFr8rtRoQqt4IBhKR5JVgYtCxy9p_GrlCI/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
