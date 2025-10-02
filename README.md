@@ -3,6 +3,7 @@
 
 Publications
 Draft protocol https://neuromusical.com/igs01a.html
+Archived https://web.archive.org/web/20251002194224/https://neuromusical.com/igs01a.html
 
 
 Disclaimer: This is being shared for academic and information purposes only. There is no guarantee or liability of any kind or consideration. There is no claim to accuracy or fitment for any purpose.
