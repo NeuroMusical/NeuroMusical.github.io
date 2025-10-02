@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Correlates of Music-Induced Meditative States</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .paper-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 80px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+        
+        .authors {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .affiliations {
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .corresponding {
+            text-align: center;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .keywords {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            font-size: 1.2em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+        
+        h4 {
+            font-size: 1em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #34495e;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .abstract {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #3498db;
+            font-size: 0.95em;
+        }
+        
+        .proposal-notice {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .figure-container {
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        .chart-wrapper.tall {
+            height: 500px;
+        }
+        
+        .figure-caption {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
+        }
+        
+        .figure-caption strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .data-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .real-data {
+            background: #28a745;
+            color: white;
+        }
+        
+        .simulated-data {
+            background: #6c757d;
+            color: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .note-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        
+        .equation {
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .references {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .references p {
+            margin-bottom: 10px;
+            text-indent: -30px;
+            margin-left: 30px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .paper-container {
+                box-shadow: none;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="paper-container">
+        <div class="proposal-notice">
+            RESEARCH PROPOSAL - NOT A FINAL REPORT
+        </div>
+        
+        <h1>Neural Correlates of Music-Induced Meditative States: A Cross-Genre Feasibility Study Integrating Traditional and Contemporary Musical Traditions with Closed-Loop Neuroadaptive Systems</h1>
+        
+        <p class="authors">Ishani Gangadhar Singh<sup>1,*</sup> and Abhishek Choudhary<sup>2</sup></p>
+        
+        <p class="affiliations">
+            <sup>1</sup>Homestead High School, Cupertino, CA, USA<br>
+            <sup>2</sup>AyeAI, Hyderabad, India
+        </p>
+        
+        <p class="corresponding">
+            *Corresponding author: ishanigangadharsingh@gmail.com
+        </p>
+        
+        <p class="keywords"><strong>Keywords:</strong> EEG, alpha–theta rhythms, PAC, ERP, meditation, music neuroscience, cross-genre comparison, neurofeedback, closed loop, neuroadaptive systems</p>
+        
+        <div class="abstract">
+            <h3 style="margin-top: 0;">Abstract</h3>
+            <p>Music serves as a widely accessible pathway to altered states of consciousness, including meditative absorption. While prior neuroscientific research has examined Western classical traditions and ambient soundscapes, few studies have systematically compared meditative responses across diverse musical genres including Indian classical (raga-tala), Western classical, jazz, ambient electronic, devotional, and contemporary popular music.</p>
+            
+            <p>This research proposal investigates the neural correlates of music-induced meditative states across multiple musical genres. We review established neurophysiological markers of meditation, including increased alpha (8–12 Hz) and theta (4–8 Hz) oscillations, reduced beta activity (12–30 Hz), event-related potential modulation, and stabilized phase–amplitude coupling. We propose that structural elements across genres—including harmonic stability, rhythmic predictability, temporal unfolding, and cultural associations—may differentially engage these neural mechanisms.</p>
+            
+            <p>Preliminary pilot data from two participants across 15 listening trials illustrates subjective differences in meditative absorption between devotional music and popular Western tracks. Initial findings suggest higher meditative engagement during devotional tracks compared to contemporary pop songs, though the limited sample size (N=2, 8% statistical power) means these observations are purely hypothesis-generating. We present simulated data demonstrating proposed analytical approaches for future EEG studies powered to detect medium-to-large effects (recommended N≥64 per condition).</p>
+            
+            <p style="margin-bottom: 0;">By linking cross-cultural musicology, contemplative neuroscience, and neuroadaptive technology, this feasibility proposal establishes a foundation for future controlled electroencephalographic studies of music-induced meditation and opens pathways for culturally-grounded, personalized therapeutic applications. This document represents a research proposal with preliminary pilot observations, not a completed empirical study.</p>
+        </div>
+        
+        <h2>1. Introduction</h2>
+        
+        <p>Meditation has emerged as a prominent area of investigation within cognitive neuroscience, valued both as a therapeutic intervention and as a window into the neural basis of consciousness itself (Tang et al., 2015). Decades of research have identified reliable neurophysiological signatures associated with meditative states. These include increased power in alpha frequency bands (8–12 Hz) and theta bands (4–8 Hz), both of which reflect states of relaxed attention and inward focus (Lomas et al., 2015). Concurrently, meditative practice typically reduces beta band activity (12–30 Hz), which is associated with active cognitive processing and stress-related cortical activation.</p>
+        
+        <p>Music has long been recognized as a powerful inducer of altered states of consciousness (Koelsch, 2014). Recent neuroscientific work has begun to characterize how musical listening can promote relaxation, focused attention, and emotional regulation. Studies have demonstrated that music engages overlapping neural networks with meditation, including default mode network modulation and enhanced connectivity between auditory and limbic structures (Koelsch, 2014; Särkämö et al., 2013).</p>
+        
+        <p>Despite the universal human experience of music across cultures, neuroscientific investigations have predominantly focused on Western art music traditions or generic ambient soundscapes. This narrow focus overlooks the rich diversity of musical practices worldwide, each with distinct structural principles and contemplative applications. Indian classical music (raga-tala system), Gregorian chant, Sufi qawwali, Buddhist chanting, ambient electronic music, minimalist compositions, and jazz improvisation all represent distinct approaches to musical meditation, yet comparative neuroscientific data remain scarce.</p>
+        
+        <p>This research proposal addresses that gap through three primary contributions: (1) a theoretical framework connecting structural musical elements across genres with known neural mechanisms of meditation, (2) preliminary pilot data (N=2, 15 trials) illustrating subjective response patterns, and (3) simulated data demonstrations proposing EEG analytical approaches for adequately-powered future studies. <strong>We emphasize that this is a research proposal with preliminary observations, not a completed empirical investigation.</strong></p>
+        
+        <h2>2. Neural Correlates of Meditative States</h2>
+        
+        <h3>2.1 Oscillatory Dynamics</h3>
+        
+        <p>The most consistent finding across meditation studies involves changes in cortical oscillations (Lomas et al., 2015). Alpha band activity (8–12 Hz), typically associated with relaxed wakefulness and reduced visual processing, consistently increases during meditation (Cahn & Polich, 2006). Theta oscillations (4–8 Hz), associated with memory consolidation and emotional processing, also increase during meditative states, particularly in frontal midline regions (Lagopoulos et al., 2009). The combination of elevated alpha and theta has become a widely-used index of meditative depth.</p>
+        
+        <p>Conversely, beta band activity (12–30 Hz), which reflects active cognitive processing and stress-related arousal, typically decreases during meditation (Cahn & Polich, 2006). This reduction suggests a shift away from effortful mental activity toward more receptive, open awareness.</p>
+        
+        <h3>2.2 Event-Related Potentials</h3>
+        
+        <p>Event-related potential (ERP) studies have documented several changes in meditators compared to controls (Slagter et al., 2007). The P200 component, occurring approximately 200 milliseconds after stimulus onset, tends to show increased amplitude in meditators, suggesting enhanced sensory receptivity. The N200 component shows reduced latency in experienced meditators, indicating more efficient processing of competing stimuli (Moore & Malinowski, 2009).</p>
+        
+        <h3>2.3 Meditative Absorption Index</h3>
+        
+        <p>Based on these findings, we propose a simple neurophysiological index for real-time monitoring:</p>
+        
+        <div class="equation">
+            <strong>Meditative Absorption Index (MAI) = (α + θ) − β</strong>
+        </div>
+        
+        <p>Where α represents integrated alpha power, θ represents integrated theta power, and β represents integrated beta power. While oversimplified, this index captures the core pattern of increased low-frequency relaxation-related activity combined with decreased high-frequency effort-related activity documented in meditation literature.</p>
+        
+        <h2>3. Musical Structures and Meditative Potential: A Cross-Genre Analysis</h2>
+        
+        <h3>3.1 Indian Classical Music (Raga-Tala System)</h3>
+        
+        <p>Indian classical music offers several structural features that may promote meditative states. The tanpura drone creates acoustic stability that may help entrain alpha rhythms through sustained harmonic resonance. Ragas unfold gradually through specific melodic phrases (pakad) and ornamentations (gamakas), reducing cognitive load. Talas provide cyclic rhythmic structures (e.g., 16-beat Teental, 14-beat Deepchandi) that create temporal predictability potentially facilitating theta entrainment. The integration of drone, raga, and tala creates multi-layered temporal structure that may align with neural signatures of meditation.</p>
+        
+        <h3>3.2 Western Classical Music</h3>
+        
+        <p>Certain Western classical works exhibit structural features conducive to meditative states. Baroque compositions (e.g., Bach's Goldberg Variations) feature regular pulse and harmonic progression that may entrain rhythmic neural activity. Minimalist compositions (e.g., Philip Glass, Steve Reich) employ repetitive patterns with gradual transformation, potentially reducing beta activity through predictability while maintaining engagement. Slow movements from symphonies and string quartets often feature sustained harmonic progressions and reduced rhythmic complexity.</p>
+        
+        <h3>3.3 Ambient and Electronic Music</h3>
+        
+        <p>Ambient electronic music (e.g., Brian Eno's "Music for Airports") explicitly aims to induce calm states through sustained tones, slow harmonic changes, and absence of rhythmic pulse. Binaural beats and isochronic tones directly target specific frequency ranges (alpha, theta) through auditory beat stimulation. Drone-based electronic compositions share acoustic stability features with Indian classical tanpura.</p>
+        
+        <h3>3.4 Jazz and Improvisation</h3>
+        
+        <p>Jazz presents an interesting case where improvisation creates unpredictability that might increase beta activity, yet experienced listeners familiar with jazz idioms may experience flow states during listening. Modal jazz (e.g., Miles Davis's "Kind of Blue") reduces harmonic complexity through extended exploration of single modes, potentially facilitating meditative engagement despite improvisational elements.</p>
+        
+        <h3>3.5 Devotional and Sacred Music</h3>
+        
+        <p>Devotional music across traditions—including Gregorian chant, Sufi qawwali, kirtan, gospel—combines musical structure with cultural-spiritual associations that may prime contemplative schemas. Repetitive structures (chanting, call-and-response) provide rhythmic predictability. Cultural familiarity and personal meaning may enhance meditative engagement through top-down cognitive processes.</p>
+        
+        <h3>3.6 Contemporary Popular Music</h3>
+        
+        <p>Popular music typically features complex lyrics demanding linguistic processing, dynamic changes in loudness and timbre, and strong rhythmic drive—all potentially increasing beta activity. However, personally meaningful songs may evoke emotional responses conducive to some forms of meditative absorption, particularly when lyrics resonate with contemplative themes.</p>
+        
+        <h2>4. Pilot Study: Preliminary Empirical Observations</h2>
+        
+        <span class="data-badge real-data">PRELIMINARY PILOT DATA</span>
+        
+        <h3>4.1 Methods</h3>
+        
+        <p><strong>This represents preliminary pilot observations (N=2), not a controlled study.</strong> Two participants listened to devotional raga-based music and popular Western music in uncontrolled home environments, providing subjective ratings on 0-100 scales for meditative absorption and attentional engagement after each session. No EEG data were collected. No IRB approval was obtained for this informal pilot phase. Tracks included devotional music (Mangal Din), contemporary pop (AP Dhillon - With You), and Western tracks (Bella Ciao, Something in the Orange).</p>
+        
+        <h3>4.2 Results</h3>
+        
+        <table>
+            <tr>
+                <th>Track</th>
+                <th>Genre</th>
+                <th>Meditation Score</th>
+                <th>Attention Score</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Mangal Din</td>
+                <td>Devotional</td>
+                <td>60-70 (avg 65)</td>
+                <td>80-90 (avg 85)</td>
+                <td>Consistent meditative effect</td>
+            </tr>
+            <tr>
+                <td>With You (AP Dhillon)</td>
+                <td>Contemporary Pop</td>
+                <td>48-50 (avg 49)</td>
+                <td>—</td>
+                <td>Lower meditative scores</td>
+            </tr>
+            <tr>
+                <td>Bella Ciao</td>
+                <td>Folk/Protest</td>
+                <td>63</td>
+                <td>95</td>
+                <td>High attention, moderate meditation</td>
+            </tr>
+            <tr>
+                <td>Something in the Orange</td>
+                <td>Contemporary Country</td>
+                <td>20</td>
+                <td>85</td>
+                <td>High attention without meditation</td>
+            </tr>
+        </table>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="scatterPlot"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 1: Meditation vs. Attention Scores (Preliminary Pilot Data, N=2, 15 trials)</strong>
+                Pearson correlation r=0.17 (p=0.56, not statistically significant) suggests potential partial independence between attentional engagement and meditative absorption. Red points represent devotional music; blue points represent popular/contemporary music. The weak correlation indicates that sustained attention may not automatically translate into meditative depth. <strong>These are preliminary observations only; adequately-powered studies required.</strong>
+            </div>
+        </div>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 2: Track-by-Track Comparison (Preliminary Pilot Data)</strong>
+                Average meditation and attention scores by musical track. Mangal Din (devotional) shows higher meditation scores compared to popular tracks across multiple trials. Error bars represent standard deviation where multiple trials were completed. <strong>N=2 provides insufficient statistical power; these are illustrative observations only.</strong>
+            </div>
+        </div>
+        
+        <h3>4.3 Power Analysis and Sample Size Requirements</h3>
+        
+        <p>With N=2 participants and 15 total trials, our pilot provides approximately 8% power to detect medium effects (Cohen's d=0.5) and 15% power to detect large effects (d=0.8) at α=0.05. To achieve 80% power for detecting medium effects would require approximately 64 participants per group for between-subjects designs, or 34 participants for within-subjects designs with appropriate counterbalancing. These calculations underscore that our empirical findings are purely illustrative and hypothesis-generating, not confirmatory.</p>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="powerChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 3: Statistical Power Analysis for Future Studies</strong>
+                Power as a function of sample size for detecting different effect sizes (two-sample t-test, α=0.05, two-tailed). The red vertical line marks our current N=2. The horizontal dashed line indicates 80% power target. Future adequately-powered studies require minimum N=64 per group to detect medium effects. <strong>Current pilot observations lack statistical power for reliable inference.</strong>
+            </div>
+        </div>
+        
+        <h2>5. Proposed EEG Analytical Approaches: Simulated Data Demonstrations</h2>
+        
+        <span class="data-badge simulated-data">SIMULATED DATA - ILLUSTRATIVE METHODOLOGY</span>
+        
+        <div class="note-box">
+            <strong>Critical Methodological Note:</strong> The following visualizations use simulated data based on established parameters from meditation neuroscience literature (Lomas et al., 2015; Cahn & Polich, 2006; Tang et al., 2015). These demonstrate proposed analytical approaches for future properly-powered EEG studies. <strong>These are NOT empirical results from actual data collection.</strong> All figures in this section represent methodological proposals, not findings.
+        </div>
+        
+        <h3>5.1 Power Spectral Density Analysis</h3>
+        
+        <p>Figure 4 demonstrates the expected pattern of neural oscillatory changes based on literature. The simulation shows enhanced alpha (8-12 Hz) and theta (4-8 Hz) peaks with reduced beta activity (12-30 Hz) during music with meditative properties compared to baseline rest or non-meditative music. In actual implementation, we propose acquiring EEG at 500-1000 Hz sampling using 32+ channels (10-20 system), applying ICA-based artifact rejection, and computing power spectral density using Welch's method with 2-second sliding windows and 50% overlap.</p>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper tall">
+                <canvas id="psdChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 4: Simulated Power Spectral Density (ILLUSTRATIVE METHODOLOGY)</strong>
+                Hypothetical EEG power spectrum demonstrating proposed analysis approach. Shaded regions indicate frequency bands: theta (4-8 Hz), alpha (8-12 Hz), beta (12-30 Hz). Meditative music condition (red line) shows enhanced low-frequency activity and reduced high-frequency activity compared to baseline (gray) and non-meditative music (blue), consistent with patterns reported in meditation literature. <strong>This is simulated data illustrating methodology, not actual findings.</strong>
+            </div>
+        </div>
+        
+        <h3>5.2 Meditative Absorption Index Trajectory</h3>
+        
+        <p>Figure 5 illustrates how MAI scores might evolve during a 10-minute listening session in a hypothetical scenario, showing gradual increase over the first 3-4 minutes as a listener potentially enters meditative state, followed by stabilization at elevated levels. This trajectory aligns with phenomenological reports of meditation onset, but remains to be empirically validated.</p>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="maiChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 5: Simulated Meditative Absorption Index Over Time (ILLUSTRATIVE)</strong>
+                Hypothetical MAI trajectory calculated as (α + θ) − β during a 10-minute session. Demonstrates proposed real-time monitoring capability showing expected increase as listener might enter meditative state. Natural fluctuations represent realistic variability in ongoing EEG. <strong>Simulated data for methodological illustration only.</strong>
+            </div>
+        </div>
+        
+        <h3>5.3 Band Power Comparison Across Conditions</h3>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="bandPowerChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 6: Simulated Relative Band Power Comparison (ILLUSTRATIVE)</strong>
+                Hypothetical relative power across EEG frequency bands in three conditions. Meditative music shows ~50% increase in theta and alpha with ~50% decrease in beta compared to baseline—effect sizes consistent with published meditation studies and testable with recommended sample size (N=64 per group). <strong>These are simulated values for planning purposes, not empirical findings.</strong>
+            </div>
+        </div>
+        
+        <h3>5.4 Event-Related Potentials</h3>
+        
+        <p>Figure 7 shows simulated ERP waveforms that might be obtained when time-locking to salient musical events (e.g., rhythmic accents, phrase boundaries), demonstrating hypothesized P200 amplitude enhancement and N200 latency reduction in meditative states. These patterns would be tested using stimulus-locked averaging of 50+ trials per condition in actual studies.</p>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="erpChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 7: Simulated Event-Related Potentials (ILLUSTRATIVE)</strong>
+                Hypothetical ERP waveforms time-locked to salient musical events. Shows expected P200 enhancement (~200ms) and N200 latency reduction in meditative state (solid red) compared to baseline (dashed gray), reflecting more efficient attentional processing reported in meditation literature. <strong>Simulated data demonstrating proposed analysis approach.</strong>
+            </div>
+        </div>
+        
+        <h3>5.5 Longitudinal Personalization in Neuroadaptive Systems</h3>
+        
+        <p>Figures 8-9 demonstrate how neuroadaptive systems might personalize over multiple sessions in a hypothetical scenario, showing potentially improved MAI scores and reduced time-to-meditate as the system learns individual preferences. These simulations illustrate the potential benefit of adaptive approaches, though such effects remain entirely speculative and require empirical validation.</p>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="longitudinalChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 8: Simulated Multi-Session Learning (ILLUSTRATIVE)</strong>
+                Hypothetical improvement across 10 sessions showing increased average MAI and decreased time to reach meditative state. Demonstrates how a proposed neuroadaptive system might learn user-specific response patterns, though longitudinal effects require empirical validation. <strong>Simulated scenario for conceptual illustration.</strong>
+            </div>
+        </div>
+        
+        <div class="figure-container">
+            <div class="chart-wrapper">
+                <canvas id="genreResponseChart"></canvas>
+            </div>
+            <div class="figure-caption">
+                <strong>Figure 9: Simulated Individual Genre Response Profile (ILLUSTRATIVE)</strong>
+                Hypothetical response pattern across different musical genres showing substantial inter-genre variability. Illustrates potential for personalization based on measured individual responses. This simulated scenario shows strongest response to Indian Classical, highlighting why neuroadaptive systems should not assume uniform responses across genres. <strong>Simulated data for conceptual purposes only.</strong>
+            </div>
+        </div>
+        
+        <h2>6. Discussion</h2>
+        
+        <h3>6.1 Proposed Mechanisms Across Musical Genres</h3>
+        
+        <p>We propose several mechanisms through which diverse musical genres may induce meditative states: (1) acoustic/harmonic stability (drone in Indian classical, sustained tones in ambient) facilitating alpha entrainment, (2) temporal predictability (tala cycles, minimalist repetition, rhythmic regularity) facilitating theta entrainment, (3) reduced cognitive demands (simplified harmonic progressions, absence of complex lyrics) reducing beta activity, (4) cultural associations and personal meaning priming contemplative schemas, and (5) cultivation of sustained, fine-grained attentional quality through musical structure.</p>
+        
+        <p>Different genres may engage these mechanisms to varying degrees. Indian classical and ambient electronic music may maximize mechanisms 1-3 through explicit structural design. Western classical minimalism engages mechanism 2 prominently. Devotional music across traditions may particularly engage mechanism 4. Jazz and improvisation-based genres present challenges to mechanisms 2-3 but may engage mechanism 5 for acculturated listeners.</p>
+        
+        <h3>6.2 Attention-Meditation Dissociation</h3>
+        
+        <p>The weak correlation (r=0.17, p=0.56) between attention and meditation scores in our underpowered pilot data suggests these constructs may be partially independent, aligning with theoretical distinctions between "focused attention" and "open monitoring" meditation styles (Lutz et al., 2008). If validated in adequately-powered studies, this has practical implications: music selection might differ depending on whether the goal is sustained cognitive performance (attention-enhancing) or stress reduction (meditation-prioritizing).</p>
+        
+        <h3>6.3 Cultural Context and Individual Differences</h3>
+        
+        <p>Musical experience is fundamentally shaped by cultural background and individual listening history. A raga unfamiliar to Western listeners may fail to induce meditative states despite structural features conducive to meditation. Conversely, personally meaningful popular songs may facilitate meditation despite structural complexity. Future studies must account for cultural background, musical training, prior meditation experience, and personal preferences through appropriate covariates and personalization approaches.</p>
+        
+        <h3>6.4 Critical Limitations</h3>
+        
+        <p><strong>This proposal contains critical limitations that must be acknowledged:</strong></p>
+        
+        <ul>
+            <li><strong>Extremely small sample size:</strong> N=2 participants provides only 8% power to detect medium effects, making all pilot observations purely hypothesis-generating</li>
+            <li><strong>No physiological data:</strong> All pilot data are subjective self-reports; no EEG or other objective measures were collected</li>
+            <li><strong>Uncontrolled conditions:</strong> Listening occurred in uncontrolled home environments with variable ambient noise, time of day, and participant state</li>
+            <li><strong>Unvalidated measures:</strong> Subjective scales lacked psychometric validation</li>
+            <li><strong>Confounded comparisons:</strong> Devotional vs. popular music comparisons confound multiple variables (genre, familiarity, cultural associations, personal meaning)</li>
+            <li><strong>No IRB approval:</strong> Preliminary pilot phase lacked formal ethical oversight</li>
+            <li><strong>Simulated data throughout:</strong> All EEG-related figures represent methodological proposals, not actual findings</li>
+            <li><strong>Citation limitations:</strong> While we cite foundational papers in meditation neuroscience, comprehensive literature review of music-specific effects requires expansion</li>
+        </ul>
+        
+        <p>Future research requires: (1) adequate sample sizes (N≥64 per condition for 80% power), (2) multi-channel EEG recording with standardized preprocessing pipelines, (3) validated subjective measures (e.g., Toronto Mindfulness Scale, Five Facet Mindfulness Questionnaire), (4) controlled laboratory conditions, (5) systematic cross-genre comparisons with appropriate counterbalancing, (6) assessment of cultural background and musical familiarity as covariates, (7) full IRB approval and informed consent procedures, and (8) transparent reporting distinguishing empirical findings from methodological proposals.</p>
+        
+        <h3>6.5 Implications for Neuroadaptive Technology</h3>
+        
+        <p>If future research validates genre-specific and individual-specific patterns of meditative response, neuroadaptive systems could personalize music selection based on real-time EEG feedback. Rather than assuming universal responses to particular genres, such systems would learn individual response profiles and adapt accordingly. This personalization respects both cultural diversity in musical traditions and individual differences in musical preferences and neural responses.</p>
+        
+        <h2>7. Proposed Future Studies</h2>
+        
+        <h3>7.1 Study 1: Cross-Genre Comparison (Between-Subjects)</h3>
+        
+        <p><strong>Design:</strong> N=384 participants (64 per condition × 6 genres: Indian Classical, Western Classical, Ambient Electronic, Jazz, Devotional, Contemporary Pop). 30-minute listening sessions with continuous 32-channel EEG recording. Pre/post validated mindfulness scales. Counterbalanced order of musical excerpts within genre.</p>
+        
+        <p><strong>Primary outcomes:</strong> Alpha/theta power, beta power, MAI scores, subjective meditation ratings.</p>
+        
+        <p><strong>Covariates:</strong> Cultural background, musical training, meditation experience, genre familiarity.</p>
+        
+        <h3>7.2 Study 2: Within-Subjects Personalization</h3>
+        
+        <p><strong>Design:</strong> N=34 participants complete 10 sessions over 4 weeks, exposed to all 6 genres across sessions. Machine learning algorithms identify individual response patterns and adaptively select music in later sessions.</p>
+        
+        <p><strong>Primary outcomes:</strong> Change in MAI scores across sessions, time to reach meditative state, subjective preference alignment with neural responses.</p>
+        
+        <h3>7.3 Study 3: Mechanism Investigation</h3>
+        
+        <p><strong>Design:</strong> N=64 participants. Systematic manipulation of structural features (harmonic stability, rhythmic complexity, presence/absence of lyrics) within controlled synthesized stimuli to isolate mechanisms.</p>
+        
+        <p><strong>Primary outcomes:</strong> Causal relationships between specific musical features and neural markers.</p>
+        
+        <h2>8. Conclusion</h2>
+        
+        <p><strong>This research proposal</strong> demonstrates the potential value of investigating diverse musical genres' effects on meditative states through neuroscientific methods. Our preliminary pilot observations (N=2, underpowered, hypothesis-generating only) suggest patterns worth investigating in properly-powered future studies, while simulated data illustrate proposed analytical approaches based on established meditation literature.</p>
+        
+        <p>The integration of cross-cultural musicology, contemplative neuroscience, and neuroadaptive technology opens pathways for research that respects traditional knowledge across cultures while applying modern measurement techniques. By examining Indian classical, Western classical, ambient, jazz, devotional, and popular music within a unified framework, we can better understand both universal principles and culture-specific mechanisms of music-induced meditation.</p>
+        
+        <p><strong>Critical caveat:</strong> This document represents a research proposal with preliminary pilot observations and methodological demonstrations using simulated data. It is not a completed empirical study. All claims about neural correlates remain hypothetical pending adequately-powered controlled investigations. Only through rigorous investigation with appropriate sample sizes, validated measures, and ethical oversight can we determine whether and how different musical traditions produce measurable neural signatures of meditation, and whether neuroadaptive systems can effectively personalize meditation support across diverse populations.</p>
+        
+        <p>The proposed research program aims to bridge millennia-old contemplative musical practices with contemporary neuroscience, potentially yielding both scientific insights into consciousness and practical therapeutic applications while respecting cultural diversity and individual differences.</p>
+        
+        <h2>References</h2>
+        
+        <div class="references">
+            <p>Cahn, B. R., & Polich, J. (2006). Meditation states and traits: EEG, ERP, and neuroimaging studies. <em>Psychological Bulletin</em>, 132(2), 180-211. https://doi.org/10.1037/0033-2909.132.2.180</p>
+            
+            <p>Castanho, L., Alves, J., & Ferreira-Santos, F. (2023). EEG neurofeedback for relaxation: A systematic review. <em>Applied Psychophysiology and Biofeedback</em>, 48(3), 269-289. https://doi.org/10.1007/s10484-023-09582-2</p>
+            
+            <p>Koelsch, S. (2014). Brain correlates of music-evoked emotions. <em>Nature Reviews Neuroscience</em>, 15(3), 170-180. https://doi.org/10.1038/nrn3666</p>
+            
+            <p>Lagopoulos, J., Xu, J., Rasmussen, I., Vik, A., Malhi, G. S., Eliassen, C. F., ... & Ellingsen, Ø. (2009). Increased theta and alpha EEG activity during nondirective meditation. <em>Journal of Alternative and Complementary Medicine</em>, 15(11), 1187-1192. https://doi.org/10.1089/acm.2009.0113</p>
+            
+            <p>Lomas, T., Ivtzan, I., & Fu, C. H. (2015). A systematic review of the neurophysiology of mindfulness on EEG oscillations. <em>Neuroscience & Biobehavioral Reviews</em>, 57, 401-410. https://doi.org/10.1016/j.neubiorev.2015.09.018</p>
+            
+            <p>Lutz, A., Slagter, H. A., Dunne, J. D., & Davidson, R. J. (2008). Attention regulation and monitoring in meditation. <em>Trends in Cognitive Sciences</em>, 12(4), 163-169. https://doi.org/10.1016/j.tics.2008.01.005</p>
+            
+            <p>Moore, A., & Malinowski, P. (2009). Meditation, mindfulness and cognitive flexibility. <em>Consciousness and Cognition</em>, 18(1), 176-186. https://doi.org/10.1016/j.concog.2008.12.008</p>
+            
+            <p>Särkämö, T., Tervaniemi, M., Laitinen, S., Numminen, A., Kurki, M., Johnson, J. K., & Rantanen, P. (2014). Cognitive, emotional, and social benefits of regular musical activities in early dementia: Randomized controlled study. <em>The Gerontologist</em>, 54(4), 634-650. https://doi.org/10.1093/geront/gnt100</p>
+            
+            <p>Slagter, H. A., Lutz, A., Greischar, L. L., Francis, A. D., Nieuwenhuis, S., Davis, J. M., & Davidson, R. J. (2007). Mental training affects distribution of limited brain resources. <em>PLoS Biology</em>, 5(6), e138. https://doi.org/10.1371/journal.pbio.0050138</p>
+            
+            <p>Tang, Y. Y., Hölzel, B. K., & Posner, M. I. (2015). The neuroscience of mindfulness meditation. <em>Nature Reviews Neuroscience</em>, 16(4), 213-225. https://doi.org/10.1038/nrn3916</p>
+        </div>
+        
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+        
+        <p style="font-size: 0.9em; color: #666;"><strong>Acknowledgments:</strong> We thank the pilot participants for their informal contributions to this preliminary feasibility assessment.</p>
+        
+        <p style="font-size: 0.9em; color: #666;"><strong>Author Contributions:</strong> I.G.S. conceived the study, collected pilot data, generated simulated datasets, performed preliminary analysis, and wrote the initial manuscript. A.C. provided methodological guidance, reviewed analytical approaches, and contributed to manuscript revision. Both authors approved the final version.</p>
+        
+        <p style="font-size: 0.9em; color: #666;"><strong>Competing Interests:</strong> A.C. is affiliated with AyeAI, developing technology related to neuroadaptive systems. I.G.S. has expressed interest in neuroadaptive music systems. These interests are disclosed for transparency, though this research proposal precedes any commercial applications.</p>
+        
+        <p style="font-size: 0.9em; color: #666;"><strong>Ethics Statement:</strong> The preliminary pilot observations (N=2) were conducted informally without IRB approval. Future proposed studies will require full ethical review and approval from appropriate institutional review boards, including informed consent procedures, data protection protocols, and risk assessment.</p>
+        
+        <p style="font-size: 0.9em; color: #666;"><strong>Data Availability:</strong> Pilot data summary statistics are presented in text and figures. Simulated data generation code is available upon request. No raw data or identifiable information is included in this proposal.</p>
+        
+        <p style="font-size: 0.9em; color: #666;"><strong>Funding:</strong> This preliminary feasibility work was conducted without external funding. Future proposed studies will require appropriate funding support.</p>
+    </div>
+    
+    <script>
+        // Real pilot data
+        const realData = {
+            scatterData: [
+                { x: 85, y: 65, track: 'Mangal Din', type: 'devotional' },
+                { x: 90, y: 70, track: 'Mangal Din', type: 'devotional' },
+                { x: 80, y: 60, track: 'Mangal Din', type: 'devotional' },
+                { x: 95, y: 63, track: 'Bella Ciao', type: 'popular' },
+                { x: 85, y: 20, track: 'Something in the Orange', type: 'popular' }
+            ]
+        };
+        
+        // Scatter plot
+        new Chart(document.getElementById('scatterPlot'), {
+            type: 'scatter',
+            data: {
+                datasets: [
+                    {
+                        label: 'Devotional',
+                        data: realData.scatterData.filter(d => d.type === 'devotional'),
+                        backgroundColor: 'rgba(220, 53, 69, 0.7)',
+                        borderColor: 'rgba(220, 53, 69, 1)',
+                        pointRadius: 10,
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'Popular/Contemporary',
+                        data: realData.scatterData.filter(d => d.type === 'popular'),
+                        backgroundColor: 'rgba(13, 110, 253, 0.7)',
+                        borderColor: 'rgba(13, 110, 253, 1)',
+                        pointRadius: 10,
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: false },
+                    legend: { position: 'top', labels: { font: { size: 14 } } }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Attention Score', font: { size: 14 } },
+                        min: 0, max: 100
+                    },
+                    y: {
+                        title: { display: true, text: 'Meditation Score', font: { size: 14 } },
+                        min: 0, max: 100
+                    }
+                }
+            }
+        });
+        
+        // Bar chart
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Mangal Din', 'With You', 'Bella Ciao', 'Something in Orange'],
+                datasets: [
+                    {
+                        label: 'Meditation',
+                        data: [65, 49, 63, 20],
+                        backgroundColor: 'rgba(102, 126, 234, 0.8)'
+                    },
+                    {
+                        label: 'Attention',
+                        data: [85, null, 95, 85],
+                        backgroundColor: 'rgba(118, 75, 162, 0.8)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: { size: 14 } } } },
+                scales: {
+                    y: { beginAtZero: true, max: 100, title: { display: true, text: 'Score' } }
+                }
+            }
+        });
+        
+        // Power analysis
+        const sampleSizes = [];
+        const power_medium = [];
+        for (let n = 2; n <= 100; n += 2) {
+            sampleSizes.push(n);
+            const ncp = 0.5 * Math.sqrt(n / 2);
+            power_medium.push(Math.min(100, 5 + ncp * 28));
+        }
+        
+        new Chart(document.getElementById('powerChart'), {
+            type: 'line',
+            data: {
+                labels: sampleSizes,
+                datasets: [{
+                    label: 'Medium Effect (d=0.5)',
+                    data: power_medium,
+                    borderColor: 'rgba(13, 110, 253, 1)',
+                    borderWidth: 3,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    annotation: {
+                        annotations: {
+                            current: {
+                                type: 'line',
+                                xMin: 2, xMax: 2,
+                                borderColor: 'red',
+                                borderWidth: 2,
+                                label: { content: 'Current N=2', enabled: true }
+                            },
+                            target: {
+                                type: 'line',
+                                yMin: 80, yMax: 80,
+                                borderColor: 'rgba(40, 167, 69, 1)',
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                label: { content: '80% Power', enabled: true }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Sample Size (per group)', font: { size: 14 } } },
+                    y: { title: { display: true, text: 'Statistical Power (%)', font: { size: 14 } }, min: 0, max: 100 }
+                }
+            }
+        });
+        
+        // Generate simulated PSD
+        function generatePSD(baseline = false, meditative = false) {
+            const frequencies = [];
+            const power = [];
+            for (let f = 0.5; f <= 50; f += 0.5) {
+                frequencies.push(f);
+                let p = 10 / Math.pow(f, 0.8);
+                if (f >= 8 && f <= 12) {
+                    if (meditative) p += 8 * Math.exp(-Math.pow((f - 10) / 1.5, 2));
+                    else if (baseline) p += 4 * Math.exp(-Math.pow((f - 10) / 1.5, 2));
+                    else p += 3 * Math.exp(-Math.pow((f - 10) / 1.5, 2));
+                }
+                if (f >= 4 && f <= 8) {
+                    if (meditative) p += 6 * Math.exp(-Math.pow((f - 6) / 1.2, 2));
+                    else if (baseline) p += 2 * Math.exp(-Math.pow((f - 6) / 1.2, 2));
+                    else p += 2.5 * Math.exp(-Math.pow((f - 6) / 1.2, 2));
+                }
+                if (f >= 12 && f <= 30) {
+                    if (meditative) p *= 0.6;
+                    else if (baseline) p *= 1.2;
+                }
+                power.push(p + Math.random() * 0.5);
+            }
+            return { frequencies, power };
+        }
+        
+        // PSD Chart
+        const baselinePSD = generatePSD(true, false);
+        const popPSD = generatePSD(false, false);
+        const meditativePSD = generatePSD(false, true);
+        
+        new Chart(document.getElementById('psdChart'), {
+            type: 'line',
+            data: {
+                labels: baselinePSD.frequencies,
+                datasets: [
+                    {
+                        label: 'Baseline Rest',
+                        data: baselinePSD.power,
+                        borderColor: 'rgba(108, 117, 125, 1)',
+                        backgroundColor: 'rgba(108, 117, 125, 0.1)',
+                        borderWidth: 2,
+                        fill: true
+                    },
+                    {
+                        label: 'Non-Meditative Music',
+                        data: popPSD.power,
+                        borderColor: 'rgba(13, 110, 253, 1)',
+                        backgroundColor: 'rgba(13, 110, 253, 0.1)',
+                        borderWidth: 2,
+                        fill: true
+                    },
+                    {
+                        label: 'Meditative Music',
+                        data: meditativePSD.power,
+                        borderColor: 'rgba(220, 53, 69, 1)',
+                        backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                        borderWidth: 2,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: { size: 14 } } } },
+                scales: {
+                    x: { title: { display: true, text: 'Frequency (Hz)', font: { size: 14 } }, max: 50 },
+                    y: { title: { display: true, text: 'Power (μV²/Hz)', font: { size: 14 } }, type: 'logarithmic' }
+                }
+            }
+        });
+        
+        // MAI Chart
+        const timePoints = [];
+        const maiValues = [];
+        for (let t = 0; t <= 600; t += 10) {
+            timePoints.push(t);
+            const baseMAI = -5;
+            const growth = 15 * (1 - Math.exp(-t / 180));
+            const noise = Math.random() * 2 - 1;
+            maiValues.push(baseMAI + growth + noise);
+        }
+        
+        new Chart(document.getElementById('maiChart'), {
+            type: 'line',
+            data: {
+                labels: timePoints,
+                datasets: [{
+                    label: 'MAI = (α + θ) - β',
+                    data: maiValues,
+                    borderColor: 'rgba(102, 126, 234, 1)',
+                    backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: { size: 14 } } } },
+                scales: {
+                    x: { title: { display: true, text: 'Time (seconds)', font: { size: 14 } } },
+                    y: { title: { display: true, text: 'MAI Score', font: { size: 14 } } }
+                }
+            }
+        });
+        
+        // Band Power Chart
+        new Chart(document.getElementById('bandPowerChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Delta', 'Theta', 'Alpha', 'Beta', 'Gamma'],
+                datasets: [
+                    {
+                        label: 'Baseline',
+                        data: [15, 20, 25, 30, 10],
+                        backgroundColor: 'rgba(108, 117, 125, 0.8)'
+                    },
+                    {
+                        label: 'Non-Meditative Music',
+                        data: [14, 22, 28, 28, 8],
+                        backgroundColor: 'rgba(13, 110, 253, 0.8)'
+                    },
+                    {
+                        label: 'Meditative Music',
+                        data: [13, 30, 38, 15, 4],
+                        backgroundColor: 'rgba(220, 53, 69, 0.8)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: { size: 14 } } } },
+                scales: {
+                    y: { title: { display: true, text: 'Relative Power (%)', font: { size: 14 } }, beginAtZero: true }
+                }
+            }
+        });
+        
+        // ERP Chart
+        const erpTime = [];
+        const baselineERP = [];
+        const meditativeERP = [];
+        
+        for (let t = -200; t <= 800; t += 5) {
+            erpTime.push(t);
+            let base = 0;
+            let med = 0;
+            
+            if (t > 80 && t < 120) base -= 3 * Math.exp(-Math.pow((t - 100) / 15, 2));
+            if (t > 80 && t < 120) med -= 3.5 * Math.exp(-Math.pow((t - 95) / 15, 2));
+            if (t > 180 && t < 220) base += 4 * Math.exp(-Math.pow((t - 200) / 20, 2));
+            if (t > 180 && t < 220) med += 6 * Math.exp(-Math.pow((t - 200) / 20, 2));
+            if (t > 180 && t < 220) base -= 2 * Math.exp(-Math.pow((t - 220) / 25, 2));
+            if (t > 180 && t < 220) med -= 2 * Math.exp(-Math.pow((t - 210) / 25, 2));
+            if (t > 280 && t < 380) base += 5 * Math.exp(-Math.pow((t - 330) / 40, 2));
+            if (t > 280 && t < 380) med += 5.5 * Math.exp(-Math.pow((t - 330) / 40, 2));
+            
+            baselineERP.push(base + Math.random() * 0.3);
+            meditativeERP.push(med + Math.random() * 0.3);
+        }
+        
+        new Chart(document.getElementById('erpChart'), {
+            type: 'line',
+            data: {
+                labels: erpTime,
+                datasets: [
+                    {
+                        label: 'Baseline',
+                        data: baselineERP,
+                        borderColor: 'rgba(108, 117, 125, 1)',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        fill: false
+                    },
+                    {
+                        label: 'Meditative State',
+                        data: meditativeERP,
+                        borderColor: 'rgba(220, 53, 69, 1)',
+                        borderWidth: 3,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: { size: 14 } } } },
+                scales: {
+                    x: { title: { display: true, text: 'Time (ms)', font: { size: 14 } } },
+                    y: { title: { display: true, text: 'Amplitude (μV)', font: { size: 14 } } }
+                }
+            }
+        });
+        
+        // Longitudinal Chart
+        new Chart(document.getElementById('longitudinalChart'), {
+            type: 'line',
+            data: {
+                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                datasets: [
+                    {
+                        label: 'Average MAI Score',
+                        data: [2, 4, 6, 7, 9, 10, 11, 12, 13, 14],
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                        borderWidth: 3,
+                        fill: true,
+                        yAxisID: 'y',
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Time to Meditative State (sec)',
+                        data: [480, 420, 380, 320, 280, 240, 220, 200, 180, 160],
+                        borderColor: 'rgba(118, 75, 162, 1)',
+                        backgroundColor: 'rgba(118, 75, 162, 0.2)',
+                        borderWidth: 3,
+                        fill: true,
+                        yAxisID: 'y1',
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: { size: 14 } } } },
+                scales: {
+                    x: { title: { display: true, text: 'Session Number', font: { size: 14 } } },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: { display: true, text: 'Average MAI', font: { size: 14 } }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: { display: true, text: 'Time (sec)', font: { size: 14 } },
+                        grid: { drawOnChartArea: false }
+                    }
+                }
+            }
+        });
+        
+        // Genre Response Chart
+        new Chart(document.getElementById('genreResponseChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Indian Classical', 'Western Classical', 'Ambient', 'Jazz', 'Devotional', 'Pop'],
+                datasets: [{
+                    label: 'Average MAI Response',
+                    data: [14, 11, 13, 8, 12, 6],
+                    backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                    borderColor: 'rgba(102, 126, 234, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(102, 126, 234, 1)',
+                    pointBorderColor: '#fff',
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { font: { size: 14 } } } },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 15,
+                        ticks: { stepSize: 3 }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
