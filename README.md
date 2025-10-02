@@ -1,6 +1,8 @@
 # NeuroMusical™ 
-### Making music intuitive TODO: Please update with your catch phrase
+### Making music intuitive
 
+Publications
+Draft protocol https://neuromusical.com/igs01a.html
 
 
 Disclaimer: This is being shared for academic and information purposes only. There is no guarantee or liability of any kind or consideration. There is no claim to accuracy or fitment for any purpose.
