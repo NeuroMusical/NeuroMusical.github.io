@@ -2,7 +2,7 @@
 ### Making music intuitive
 
 Publications
-Draft protocol https://neuromusical.com/igs01a.html
+Draft protocol https://neuromusical.com/igs01a.html<br>
 Archived https://web.archive.org/web/20251002194224/https://neuromusical.com/igs01a.html
 
 
