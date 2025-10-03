@@ -60,7 +60,7 @@ plugins:
 author:
   name   : "Ishani Gangadhar Singh"
   avatar : "/assets/images/ayetutor.png"
-  bio    : "Mentored by [AyeAI](https://ayeai.ayeam.com).
+  bio    : "Mentored by [AyeAI](https://ayeai.ayeam.com). We're making AGI inclusive."
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
