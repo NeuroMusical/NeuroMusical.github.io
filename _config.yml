@@ -58,9 +58,9 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "[Researcher name]"
+  name   : "[Ishani Gangadhar Singh]"
   avatar : "/assets/images/ayetutor.png"
-  bio    : "AyeAI is a cognitive edutech company"
+  bio    : "Mentored by [AyeAI](https://ayeai.ayeam.com).
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"

@@ -10,8 +10,8 @@ header:
     - label: "<i class='fas fa-fw fa-handshake'></i> Join us"
       url: "/join-us/"
 excerpt:
-  <b>This is an NeuroMusical™ site<br>
-  <b>Made by Ishani Singh<br> </b>
+  <b>NeuroMusical™ - Music for the Mind <br>
+  <b>Made by Ishani Gangadhar Singh<br> </b>
  (meant for academic purposes)<br>
   <small>
   <a href="about/">More about NeuroMusical™  </a>

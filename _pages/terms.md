@@ -31,4 +31,4 @@ TODO: Update trademark information
 Imitation or unauthorized usage of the trademark or the device shall imply infringement of trademark and copyright holdings which is illegal.
 
 Notice:
-[Researcher name] is providing support to NeuroMusical on a good faith basis. Access to NeuroMusical resources online, offline or by any other means implies the acceptance by the partner, collaborator, user or any other party, to indemnify [Researcher name] against any claims arising therefrom. AyeAI contributes to NeuroMusical without any warranty and with zero liability limited to below INR 1/- (one Indian rupee only).
+[Ishani Gangadhar Singh] is providing support to NeuroMusical on a good faith basis. Access to NeuroMusical resources online, offline or by any other means implies the acceptance by the partner, collaborator, user or any other party, to indemnify [Ishani Gangadhar Singh] against any claims arising therefrom. AyeAI contributes to NeuroMusical without any warranty and with zero liability limited to below INR 1/- (one Indian rupee only).
