@@ -58,7 +58,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "[Ishani Gangadhar Singh]"
+  name   : "Ishani Gangadhar Singh"
   avatar : "/assets/images/ayetutor.png"
   bio    : "Mentored by [AyeAI](https://ayeai.ayeam.com).
   links:
